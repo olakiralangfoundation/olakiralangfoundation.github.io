@@ -3,109 +3,48 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Olakira Lang Foundation</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f7f7f7;
-      color: #333;
-    }
-    header {
-      background: url('https://images.unsplash.com/photo-1579546929518-9e396f3cc809') no-repeat center center/cover;
-      color: white;
-      padding: 80px 20px;
-      text-align: center;
-    }
-    nav {
-      background: #501c70;
-      text-align: center;
-      padding: 10px 0;
-    }
-    nav a {
-      color: white;
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    section {
-      padding: 40px;
-      background: white;
-    }
-    h2 {
-      color: #702c91;
-    }
-    form label {
-      display: block;
-      margin: 10px 0 5px;
-    }
-    form input, form textarea {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 15px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
-    form button {
-      background: #702c91;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-    footer {
-      background: #eee;
-      text-align: center;
-      padding: 20px;
-      font-size: 14px;
-    }
-    .donate-box {
-      background: #f1ecf8;
-      padding: 20px;
-      border-radius: 6px;
-      text-align: center;
-      margin-top: 20px;
-    }
-    .donate-box h3 {
-      color: #702c91;
-    }
-    .donate-box button {
-      margin-top: 10px;
-      background: #702c91;
-      color: #fff;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 5px;
-      cursor: pointer;
-    }
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f7f7f7; color: #333; }
+    header { background: url('https://images.unsplash.com/photo-1603575454444-9bd7fdb31a19') center/cover no-repeat; color: white; padding: 80px 20px; text-align: center; }
+    nav { background: #501c70; text-align: center; padding: 10px 0; }
+    nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: bold; }
+    section { padding: 40px; background: white; }
+    h2 { color: #702c91; }
+    .donate-box, .lang-switch { text-align: center; margin-top: 20px; }
+    .donate-box p, .donate-box h3 { margin: 10px 0; }
+    .donate-box button { background: #702c91; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; }
+    .lang-switch button { margin: 0 5px; padding: 5px 10px; background: #702c91; color: white; border: none; border-radius: 4px; cursor: pointer; }
+    footer { background: #eee; text-align: center; padding: 20px; font-size: 14px; }
   </style>
 </head>
 <body>
   <header>
     <h1>Olakira Lang Foundation</h1>
-    <p>Empowering the Maasai Girl Child Through Education and Advocacy</p>
+    <p id="tagline">Empowering the Maasai Girl Child Through Education and Advocacy</p>
   </header>
 
   <nav>
-    <a href="#about">About</a>
-    <a href="#programs">Programs</a>
-    <a href="#news">News</a>
-    <a href="#involved">Get Involved</a>
-    <a href="#donate">Donate</a>
-    <a href="#contact">Contact</a>
+    <a href="#about" id="aboutLink">About</a>
+    <a href="#programs" id="programsLink">Programs</a>
+    <a href="#donate" id="donateLink">Donate</a>
+    <a href="#contact" id="contactLink">Contact</a>
   </nav>
 
+  <div class="lang-switch">
+    <button onclick="setLanguage('en')">English</button>
+    <button onclick="setLanguage('sw')">Kiswahili</button>
+  </div>
+
   <section id="about">
-    <h2>About Us</h2>
-    <p>Olakira Lang Foundation is a grassroots non-profit based in Siha District, Kilimanjaro, Tanzania. Our mission is to empower Maasai girls through education, mentorship, and advocacy, protecting them from early marriage and harmful cultural practices.</p>
+    <h2 id="aboutTitle">About Us</h2>
+    <p id="aboutText">Olakira Lang Foundation is a grassroots non-profit based in Siha District, Kilimanjaro, Tanzania. Our mission is to empower Maasai girls through education, mentorship, and advocacy, protecting them from early marriage and harmful cultural practices.</p>
   </section>
 
   <section id="programs">
-    <h2>Our Programs</h2>
-    <ul>
+    <h2 id="programsTitle">Our Programs</h2>
+    <ul id="programsList">
       <li>School Materials & Scholarships</li>
       <li>Mentorship for Maasai Girls</li>
       <li>Community Awareness Campaigns</li>
@@ -113,47 +52,79 @@
     </ul>
   </section>
 
-  <section id="news">
-    <h2>News & Updates</h2>
-    <p>Stay tuned for success stories and upcoming events.</p>
-  </section>
-
-  <section id="involved">
-    <h2>Get Involved</h2>
-    <p>Want to support our mission? Contact us to volunteer, donate, or partner with us in making a difference.</p>
-  </section>
-
   <section id="donate">
-    <h2>Donate</h2>
-    <div class="donate-box">
+    <h2 id="donateTitle">Donate</h2>
+    <div class="donate-box" id="donateBox">
       <h3>Support a Girl's Education</h3>
-      <p>Send your donation to:</p>
+      <p>Send your donation via:</p>
       <p><strong>M-Pesa: 0752201601</strong></p>
+      <p><strong>NMB Account: 40910046614 (MICHAEL MOLLEL)</strong></p>
       <button onclick="alert('Thank you for your support!')">I Want to Help</button>
     </div>
   </section>
 
   <section id="contact">
-    <h2>Contact Us</h2>
-    <form onsubmit="alert('Thank you for your message!'); return false;">
-      <label for="name">Full Name</label>
-      <input type="text" id="name" name="name" required>
-
-      <label for="email">Email Address</label>
-      <input type="email" id="email" name="email" required>
-
-      <label for="message">Your Message</label>
-      <textarea id="message" name="message" rows="5" required></textarea>
-
-      <button type="submit">Send Message</button>
-    </form>
-    <p>Email: olakiralangfoundation@gmail.com<br />
-    Phone: 0752201601<br />
-    Location: Siha, Kilimanjaro, Tanzania</p>
+    <h2 id="contactTitle">Contact Us</h2>
+    <p>Email: olakiralangfoundation@gmail.com<br/>Phone: 0752201601<br/>Location: Siha, Kilimanjaro, Tanzania</p>
   </section>
 
   <footer>
     &copy; 2025 Olakira Lang Foundation. All rights reserved.
   </footer>
+
+  <script>
+    const translations = {
+      sw: {
+        tagline: "Kuwawezesha Wasichana wa Kimasai Kupitia Elimu na Utetezi",
+        aboutLink: "Kuhusu",
+        programsLink: "Miradi",
+        donateLink: "Changia",
+        contactLink: "Mawasiliano",
+        aboutTitle: "Kuhusu Sisi",
+        aboutText: "Olakira Lang Foundation ni shirika lisilo la kiserikali linalofanya kazi Siha, Kilimanjaro. Lengo letu ni kuwawezesha wasichana wa Kimasai kupitia elimu, ushauri na utetezi, kuwalinda dhidi ya ndoa za utotoni na mila hatarishi.",
+        programsTitle: "Miradi Yetu",
+        programsList: `
+          <li>Vifaa vya shule na ufadhili wa masomo</li>
+          <li>Ushauri kwa wasichana wa Kimasai</li>
+          <li>Kampeni za uelewa kwa jamii</li>
+          <li>Mafunzo ya uongozi na stadi za maisha</li>`,
+        donateTitle: "Changia",
+        contactTitle: "Wasiliana Nasi"
+      },
+      en: {
+        // Restore default English texts
+        tagline: "Empowering the Maasai Girl Child Through Education and Advocacy",
+        aboutLink: "About",
+        programsLink: "Programs",
+        donateLink: "Donate",
+        contactLink: "Contact",
+        aboutTitle: "About Us",
+        aboutText: "Olakira Lang Foundation is a grassroots non-profit based in Siha District, Kilimanjaro, Tanzania. Our mission is to empower Maasai girls through education, mentorship, and advocacy, protecting them from early marriage and harmful cultural practices.",
+        programsTitle: "Our Programs",
+        programsList: `
+          <li>School Materials & Scholarships</li>
+          <li>Mentorship for Maasai Girls</li>
+          <li>Community Awareness Campaigns</li>
+          <li>Leadership & Life Skills Training</li>`,
+        donateTitle: "Donate",
+        contactTitle: "Contact Us"
+      }
+    };
+
+    function setLanguage(lang) {
+      const t = translations[lang];
+      document.getElementById("tagline").textContent = t.tagline;
+      document.getElementById("aboutLink").textContent = t.aboutLink;
+      document.getElementById("programsLink").textContent = t.programsLink;
+      document.getElementById("donateLink").textContent = t.donateLink;
+      document.getElementById("contactLink").textContent = t.contactLink;
+      document.getElementById("aboutTitle").textContent = t.aboutTitle;
+      document.getElementById("aboutText").textContent = t.aboutText;
+      document.getElementById("programsTitle").textContent = t.programsTitle;
+      document.getElementById("programsList").innerHTML = t.programsList;
+      document.getElementById("donateTitle").textContent = t.donateTitle;
+      document.getElementById("contactTitle").textContent = t.contactTitle;
+    }
+  </script>
 </body>
 </html>
